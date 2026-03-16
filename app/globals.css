@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: 'Lora', Georgia, serif;
+  --font-display: 'Playfair Display', Georgia, serif;
+
+  --sunset-primary: #ffb300;
+  --bg-cream: #fff8e1;
+  --bg-warm: #ffe9a9;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(to right, #ffb800, #ff710d);
+  color: #1a1308;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.10), transparent);
+  pointer-events: none;
+}
+
+.bg-gradient-brand {
+  background: linear-gradient(to right, #ffb800, #ff710d);
+}
+
+.bg-gradient-brand-transparent {
+  background: linear-gradient(to right, rgba(255, 184, 0, 0.85), rgba(255, 113, 13, 0.80));
+}
+
+@keyframes image-loading-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.image-loading-placeholder {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 248, 225, 0.4) 0%,
+    rgba(255, 255, 255, 0.7) 50%,
+    rgba(255, 248, 225, 0.4) 100%
+  );
+  background-size: 200% 100%;
+  animation: image-loading-shimmer 1.5s ease-in-out infinite;
+}
+
+@keyframes calendly-embed-enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-calendly-enter {
+  animation: calendly-embed-enter 0.4s ease-out forwards;
+}
+
+@layer base {
+  h1 {
+    @apply font-display text-2xl sm:text-3xl font-bold tracking-tight text-charcoal md:text-5xl;
+  }
+
+  h2 {
+    @apply font-display text-2xl sm:text-3xl font-bold tracking-tight text-charcoal md:text-4xl;
+  }
+}
+
+@layer components {
+  .p-disclaimer {
+    @apply text-sm leading-relaxed italic text-charcoal/75 md:text-base;
+  }
+}
+
