@@ -1,6 +1,12 @@
 # Psychological Warfare (psychwarriors.com)
 
-Professional counseling and therapy booking website with Stripe payments.
+Guidance and supportive consultation services. A Next.js marketing site that directs visitors to book 15-minute consultations or 45-minute sessions via **Calendly** (no backend or database).
+
+## Tech
+
+- **Next.js 16** (App Router)
+- **React 18**, **TypeScript**, **Tailwind CSS**
+- **Calendly** – session type selection on `/booking`, then popup widget for scheduling
 
 ## Setup
 
@@ -9,43 +15,39 @@ Professional counseling and therapy booking website with Stripe payments.
    npm install
    ```
 
-2. **Configure environment**
+2. **Environment (optional)**
    ```bash
    cp .env.example .env
    ```
-   Edit `.env` with your database URL, Stripe keys, Resend key, and other values.
+   Edit `.env` to set your Calendly URLs. If unset, the booking page uses built-in fallback URLs.
 
-3. **Database**
-   ```bash
-   npm run db:push
-   npm run db:seed
-   ```
-   Creates tables and an admin user (from `ADMIN_EMAIL` / `ADMIN_PASSWORD`).
+   - `NEXT_PUBLIC_CALENDLY_SCHEDULING_URL` – fallback if the per-type URLs are not set  
+   - `NEXT_PUBLIC_CALENDLY_CONSULTATION_URL` – 15-minute consultation event type  
+   - `NEXT_PUBLIC_CALENDLY_SESSION_URL` – 45-minute session event type  
 
-4. **Stripe**
-   - Create products/prices or use dynamic pricing (configured via env: `CONSULTATION_RATE`, `APPOINTMENT_RATE` in cents).
-   - Set up webhook: `https://yourdomain.com/api/webhooks/stripe` for `checkout.session.completed`.
-
-5. **Run**
+3. **Run**
    ```bash
    npm run dev
    ```
+   Open [http://localhost:3000](http://localhost:3000).
+
+## Scripts
+
+| Command        | Description              |
+|----------------|--------------------------|
+| `npm run dev`  | Start dev server         |
+| `npm run build`| Production build         |
+| `npm run start`| Start production server  |
+| `npm run lint` | Run ESLint               |
 
 ## Pages
 
-- `/` – Home
-- `/about` – About Me
-- `/book` – Book A Session (rates, policies)
-- `/booking` – Client booking (slot picker, Stripe checkout)
-- `/contact` – Contact info
-- `/admin` – Admin dashboard (login required)
+| Route      | Description                                      |
+|-----------|---------------------------------------------------|
+| `/`       | Home – hero, consultation topics (relationships, career, college, behavior) |
+| `/learn`  | Learn More – approach, name, about, style, belief, change |
+| `/book`   | Book A Session – rates, policies, legal disclaimer, CTA to booking |
+| `/booking`| Choose 15-min or 45-min, then open Calendly in a popup |
+| `/contact`| Contact – hours, email, phone, CTA to book        |
 
-## Features
-
-- 15-min consultation and 45-min appointment booking
-- Availability: Mon 5–7PM, Tue 7–8PM, Fri 11AM–6PM PST
-- Stripe payments
-- Consultation fee credited toward appointment
-- Cancellation fee within 24 hours
-- Client cancel/reschedule via magic link in confirmation email
-- Admin: calendar view, block times, transaction history
+Scheduling and payments are handled entirely in Calendly; there is no Stripe, database, or admin area in this repo.
