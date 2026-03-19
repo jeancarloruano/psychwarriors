@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { BASE_PATH } from "@/lib/basePath";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -28,7 +29,7 @@ export function Nav() {
         {/* Logo */}
         <div className="flex items-center gap-2 md:justify-self-start">
           <Image
-            src="/favicon.ico"
+            src={`${BASE_PATH}/favicon.ico`}
             alt="Psychological Warfare Logo"
             width={32}
             height={32}
