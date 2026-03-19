@@ -51,3 +51,22 @@ Guidance and supportive consultation services. A Next.js marketing site that dir
 | `/contact`| Contact – hours, email, phone, CTA to book        |
 
 Scheduling and payments are handled entirely in Calendly; there is no Stripe, database, or admin area in this repo.
+
+## Deploy to GitHub Pages
+
+This repo is configured to deploy as a **static export** to GitHub Pages at `https://<your-username>.github.io/psychwarriors/`.
+
+1. **Enable Pages**
+   - GitHub repo → **Settings** → **Pages**
+   - Source: **GitHub Actions**
+
+2. **Set Calendly URLs (recommended)**
+   - GitHub repo → **Settings** → **Secrets and variables** → **Actions** → **Variables**
+   - Add:
+     - `NEXT_PUBLIC_CALENDLY_CONSULTATION_URL`
+     - `NEXT_PUBLIC_CALENDLY_SESSION_URL`
+     - (optional) `NEXT_PUBLIC_CALENDLY_SCHEDULING_URL`
+
+3. **Deploy**
+   - Push to `main`
+   - The workflow in `.github/workflows/deploy.yml` builds and publishes the `out/` directory.

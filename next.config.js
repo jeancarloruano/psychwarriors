@@ -1,6 +1,11 @@
 /** @type {import('next').NextConfig} */
+const repo = "psychwarriors";
+
 const nextConfig = {
+  output: "export",
+  trailingSlash: true,
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: "https",
@@ -9,6 +14,8 @@ const nextConfig = {
       },
     ],
   },
-}
+  basePath: process.env.GITHUB_PAGES ? `/${repo}` : "",
+  assetPrefix: process.env.GITHUB_PAGES ? `/${repo}/` : "",
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
