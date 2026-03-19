@@ -53,7 +53,7 @@ export default function Home() {
         <div className="mx-auto flex max-w-3xl flex-col items-center gap-8 text-center">
           <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center sm:gap-5">
             <ImageWithLoading
-              src={`${BASE_PATH}favicon.ico`}
+              src={`${BASE_PATH}/favicon.ico`}
               alt=""
               width={80}
               height={80}
