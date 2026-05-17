@@ -31,9 +31,9 @@ export const images = {
 export const sectionImageFrameClass =
   "relative aspect-[4/3] w-full overflow-hidden md:aspect-[3/2]";
 
-/** Learn page: fixed aspect on mobile; match text column height on md+ */
+/** Learn page: fixed aspect on mobile; from md (2-col) stretch to match the text column */
 export const learnSectionImageFrameClass =
-  "relative w-full overflow-hidden aspect-[4/3] md:aspect-auto md:h-full md:min-h-0";
+  "relative aspect-[4/3] w-full self-stretch overflow-hidden md:aspect-auto md:h-full md:min-h-[280px]";
 
 export const learnSectionArticleClass =
   "grid grid-cols-1 gap-0 overflow-hidden border border-charcoal/10 bg-white/40 shadow-sm backdrop-blur-sm md:grid-cols-2 md:items-stretch";

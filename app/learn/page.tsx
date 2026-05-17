@@ -36,7 +36,7 @@ function LearnSectionImage({
 
   return (
     <div className={`${learnSectionImageFrameClass} ${className}`.trim()}>
-      <div className="relative h-full min-h-full w-full md:absolute md:inset-0">
+      <div className="absolute inset-0">
         <ImageWithLoading
           src={src}
           alt={alt}

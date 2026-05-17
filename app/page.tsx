@@ -64,9 +64,14 @@ export default function Home() {
               height={80}
               className="h-16 w-16 shrink-0 md:h-20 md:w-20"
             />
-            <h1 className="font-display text-4xl font-bold tracking-tight text-charcoal md:text-5xl lg:text-6xl">
-              ElevateU
-            </h1>
+            <div className="flex flex-col items-center gap-1">
+              <h1 className="font-display text-4xl font-bold tracking-tight text-charcoal md:text-5xl lg:text-6xl">
+                ElevateU
+              </h1>
+              <h2 className="font-display text-md font-semibold tracking-tight text-charcoal/70 md:text-lg lg:text-xl">
+                Elevate yourself.
+              </h2>
+            </div>
           </div>
           <p className="text-lg leading-relaxed text-charcoal/90 md:text-xl">
             Supportive guidance focused on understanding human behavior and
