@@ -2,16 +2,18 @@ import { ImageWithLoading } from "@/components/ui/ImageWithLoading";
 import { Button } from "@/components/ui/Button";
 import { ConsultationSection } from "@/components/home/ConsultationSection";
 import { BASE_PATH } from "@/lib/basePath";
+import { images } from "@/lib/images";
 
 const consultationTopics = [
   {
     title: "Relationships",
     description:
-      "Whether with a partner, family, friends, or colleagues—relationships shape our daily lives. I offer guidance on communication, boundaries, conflict, and connection so you can show up more clearly and intentionally in the relationships that matter to you.",
+      "Whether with a partner, family, friends, or colleagues—relationships shape our daily lives. I offer guidance on communication, how to implement boundaries, learning about healthy conflict and connection so you can show up more intentionally and more clearly in the relationships that matter to you.",
     items: ["Couples", "Family", "Friends", "Work", "Community", "Dating"],
     bg: "bg-warm-cream/90",
     text: "text-sunset-800",
-    image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80",
+    image: images.home.relationships,
+    imageAlt: "People connecting and supporting one another",
     imageLeft: true,
   },
   {
@@ -21,7 +23,8 @@ const consultationTopics = [
     items: ["Career change", "Goals & values", "Transitions", "Work-life balance", "Leadership", "Interview prep"],
     bg: "bg-white/20",
     text: "text-charcoal",
-    image: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=800&q=80",
+    image: images.home.careerAdvisement,
+    imageAlt: "Professional career guidance and planning",
     imageLeft: false,
   },
   {
@@ -31,17 +34,19 @@ const consultationTopics = [
     items: ["Major selection", "Time management", "Stress", "Motivation", "Study skills", "Life balance"],
     bg: "bg-warm-cream/90",
     text: "text-sunset-800",
-    image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&q=80",
+    image: images.home.collegeAdvisement,
+    imageAlt: "College student receiving academic guidance",
     imageLeft: true,
   },
   {
     title: "Exploring Behavior Patterns",
     description:
-      "Understanding why we do what we do is the first step toward lasting change. We'll look at the patterns that no longer serve you—where they came from, what triggers them, and how to shift toward choices that support the life you want.",
-    items: ["Self-awareness", "Triggers", "Habits", "Change", "Patterns", "Intentions"],
+      "Understanding why we do what we do is the first step toward lasting change. We'll look at the patterns that no longer serve you—where they came from, and how to shift toward choices that support the life you want.",
+    items: ["Self-awareness", "Habits", "Change", "Patterns", "Intentions"],
     bg: "bg-white/20",
     text: "text-charcoal",
-    image: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&q=80",
+    image: images.home.exploringBehaviorPatterns,
+    imageAlt: "Reflection on personal behavior and growth",
     imageLeft: false,
   },
 ];
@@ -60,7 +65,7 @@ export default function Home() {
               className="h-16 w-16 shrink-0 md:h-20 md:w-20"
             />
             <h1 className="font-display text-4xl font-bold tracking-tight text-charcoal md:text-5xl lg:text-6xl">
-              Psychological Warfare
+              ElevateU
             </h1>
           </div>
           <p className="text-lg leading-relaxed text-charcoal/90 md:text-xl">

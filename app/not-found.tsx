@@ -1,9 +1,7 @@
 import { ImageWithLoading } from "@/components/ui/ImageWithLoading";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
-
-const NOT_FOUND_IMAGE =
-  "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=600&q=80";
+import { images } from "@/lib/images";
 
 export default function NotFound() {
   return (
@@ -11,8 +9,8 @@ export default function NotFound() {
       <div className="mx-auto max-w-xl text-center">
         <div className="relative mx-auto mb-8 aspect-[4/3] w-full max-w-sm overflow-hidden rounded-sm border border-charcoal/10 bg-[#fff8e1]">
           <ImageWithLoading
-            src={NOT_FOUND_IMAGE}
-            alt=""
+            src={images.notFound}
+            alt="Page not found"
             fill
             className="object-cover object-center"
             sizes="(max-width: 640px) 100vw, 24rem"

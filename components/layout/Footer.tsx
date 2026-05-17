@@ -13,7 +13,7 @@ export function Footer() {
       <div className="flex w-full flex-wrap items-center justify-between gap-4 px-6 py-8 md:flex-nowrap md:gap-6 md:py-10">
         <div className="min-w-0 shrink-0">
           <p className="font-display text-base font-semibold text-charcoal md:text-lg">
-            Psychological Warfare
+            ElevateU
           </p>
           <p className="mt-0.5 text-xs text-charcoal/80 md:text-sm">
             Guidance and supportive consultation services · *
@@ -37,7 +37,7 @@ export function Footer() {
           ))}
         </div>
         <p className="shrink-0 text-right text-xs text-charcoal/70 md:text-sm">
-          © {new Date().getFullYear()} Psychological Warfare. All rights reserved.
+          © {new Date().getFullYear()} ElevateU. All rights reserved.
         </p>
       </div>
     </footer>

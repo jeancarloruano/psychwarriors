@@ -10,6 +10,7 @@ type Topic = {
   bg: string;
   text: string;
   image: string;
+  imageAlt: string;
   imageLeft: boolean;
 };
 
@@ -26,6 +27,7 @@ export function ConsultationSection({ topics }: { topics: Topic[] }) {
               <>
                 <SlideInImage
                   src={topic.image}
+                  alt={topic.imageAlt}
                   direction="left"
                   imageLeft={true}
                 />
@@ -74,6 +76,7 @@ export function ConsultationSection({ topics }: { topics: Topic[] }) {
                 </div>
                 <SlideInImage
                   src={topic.image}
+                  alt={topic.imageAlt}
                   direction="right"
                   imageLeft={false}
                 />
@@ -88,10 +91,12 @@ export function ConsultationSection({ topics }: { topics: Topic[] }) {
 
 function SlideInImage({
   src,
+  alt,
   direction,
   imageLeft,
 }: {
   src: string;
+  alt: string;
   direction: "left" | "right";
   imageLeft: boolean;
 }) {
@@ -123,7 +128,7 @@ function SlideInImage({
     >
       <ImageWithLoading
         src={src}
-        alt=""
+        alt={alt}
         fill
         className="object-cover object-center"
         sizes="(max-width: 768px) 100vw, 50vw"

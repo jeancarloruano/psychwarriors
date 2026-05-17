@@ -1,8 +1,6 @@
 import { ImageWithLoading } from "@/components/ui/ImageWithLoading";
 import { Button } from "@/components/ui/Button";
-
-const HEREFORYOU_IMAGE =
-  "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&q=80";
+import { images, sectionImageFrameClass, sectionImageSizes } from "@/lib/images";
 
 const hours = [
   { day: "Monday", hours: "5:00 PM – 7:00 PM PST" },
@@ -15,13 +13,13 @@ export default function ContactPage() {
     <div className="mx-auto w-[80%] max-w-[80vw] px-6 py-16 md:py-24">
       {/* I'm here for you - image left, text right */}
       <section className="grid w-full grid-cols-1 gap-8 md:grid-cols-2 md:items-center">
-        <div className="relative aspect-[4/3] w-full overflow-hidden md:aspect-[3/2]">
+        <div className={sectionImageFrameClass}>
           <ImageWithLoading
-            src={HEREFORYOU_IMAGE}
-            alt=""
+            src={images.contact.hereForYou}
+            alt="Supportive consultation — I'm here for you"
             fill
             className="object-cover object-center"
-            sizes="(max-width: 768px) 100vw, 50vw"
+            sizes={sectionImageSizes}
             priority
           />
         </div>

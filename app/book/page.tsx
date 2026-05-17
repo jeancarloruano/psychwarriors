@@ -1,8 +1,6 @@
 import { ImageWithLoading } from "@/components/ui/ImageWithLoading";
 import { Button } from "@/components/ui/Button";
-
-const HERO_IMAGE =
-  "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80";
+import { images, sectionImageFrameClass, sectionImageSizes } from "@/lib/images";
 
 export default function BookPage() {
   return (
@@ -43,13 +41,13 @@ export default function BookPage() {
             </p>
           </div>
         </div>
-        <div className="relative aspect-[4/3] w-full md:aspect-[3/2]">
+        <div className={sectionImageFrameClass}>
           <ImageWithLoading
-            src={HERO_IMAGE}
-            alt=""
+            src={images.book.hero}
+            alt="Schedule a consultation or session"
             fill
             className="object-cover object-center"
-            sizes="(max-width: 768px) 100vw, 50vw"
+            sizes={sectionImageSizes}
           />
         </div>
       </header>

@@ -1,18 +1,70 @@
 import { ImageWithLoading } from "@/components/ui/ImageWithLoading";
 import { Button } from "@/components/ui/Button";
 import { AnimateOnScroll } from "@/components/ui/AnimateOnScroll";
+import {
+  images,
+  learnSectionArticleClass,
+  learnAboutMeObjectPosition,
+  learnSectionImageFrameClass,
+  sectionImageSizes,
+} from "@/lib/images";
+
+const OBJECT_POSITION_PRESETS = {
+  center: "object-center",
+  bottom: "object-bottom",
+  top: "object-top",
+} as const;
+
+function LearnSectionImage({
+  src,
+  alt,
+  className = "",
+  /** Preset (`center` | `bottom` | `top`) or any CSS value, e.g. `"center 65%"` */
+  objectPosition = "center",
+}: {
+  src: string;
+  alt: string;
+  className?: string;
+  objectPosition?: string;
+}) {
+  const presetClass =
+    objectPosition in OBJECT_POSITION_PRESETS
+      ? OBJECT_POSITION_PRESETS[
+          objectPosition as keyof typeof OBJECT_POSITION_PRESETS
+        ]
+      : undefined;
+
+  return (
+    <div className={`${learnSectionImageFrameClass} ${className}`.trim()}>
+      <div className="relative h-full min-h-full w-full md:absolute md:inset-0">
+        <ImageWithLoading
+          src={src}
+          alt={alt}
+          fill
+          className={presetClass ? `object-cover ${presetClass}` : "object-cover"}
+          style={
+            presetClass ? undefined : { objectPosition }
+          }
+          sizes={sectionImageSizes}
+        />
+      </div>
+    </div>
+  );
+}
 
 const sections = [
   {
     title: "Style",
     content: [
-      { text: "My style is genuine, authentic, challenging, supportive, nonjudgmental, and direct. " },
-      { text: "I draw from Rogerian and Gestalt approaches, as well as Schlossberg's student development theory of challenge and support. " },
-      { text: "One principle I strongly believe in is this: " },
+      { text: "My style is genuine, authentic, challenging, supportive, non-judgmental and direct. " },
+      { text: "One of my core beliefs is that: " },
       { text: "\"You have to fight your own demons before fighting anybody else's.\"", bold: true },
-      { text: " I have been in therapy for over 10 years, and if I ask you to do something in our sessions, chances are high that I have had to confront it myself." }
+      { text: "\n\nI’ve been on a transformative journey for 10-plus years, beginning with the start of my master’s program in counseling. " },
+      { text: "On this journey I had to challenge myself and sit with the growing pains of self-awareness. " },
+      { text: "So if I ask you to do something in our session, chances are high that I had to battle it myself." }
     ],
-    image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&q=80",
+    image: images.learn.style,
+    imageAlt: "Counseling style and therapeutic approach",
     imageLeft: true,
   },
   {
@@ -26,7 +78,8 @@ const sections = [
       { text: "power", bold: true },
       { text: " to make small or large decisions every day that help shape our character. The complexity of our behavior is rooted in the choices we make, guided by our belief system—what we consider moral, what our values are, how we treat others, and how we wish to be treated in return." }
     ],
-    image: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&q=80",
+    image: images.learn.beliefHumanBehavior,
+    imageAlt: "Reflection on human behavior and personal choice",
     imageLeft: false,
   },
   {
@@ -40,7 +93,8 @@ const sections = [
       { text: "Self-awareness", bold: true },
       { text: " is the key to change, and I am here to help you discover yourself and make informed decisions about your behavior, your intentions, and your purpose in life." }
     ],
-    image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&q=80",
+    image: images.learn.howWeChange,
+    imageAlt: "Personal growth and behavior change",
     imageLeft: true,
   },
 ];
@@ -49,26 +103,20 @@ function SectionWithImage({
   title,
   children,
   image,
+  imageAlt,
   imageLeft,
 }: {
   title: string;
   children: React.ReactNode;
   image: string;
+  imageAlt: string;
   imageLeft: boolean;
 }) {
   return (
-    <article className="grid grid-cols-1 gap-0 overflow-hidden border border-charcoal/10 bg-white/40 shadow-sm backdrop-blur-sm md:grid-cols-2">
+    <article className={learnSectionArticleClass}>
       {imageLeft ? (
         <>
-          <div className="relative aspect-[4/3] w-full md:aspect-auto md:min-h-[280px]">
-            <ImageWithLoading
-              src={image}
-              alt=""
-              fill
-              className="object-cover object-center"
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
-          </div>
+          <LearnSectionImage src={image} alt={imageAlt} />
           <div className="flex flex-col justify-center p-6 md:p-8">
             <h2 className="font-display text-2xl font-semibold text-charcoal md:text-3xl">
               {title}
@@ -84,15 +132,11 @@ function SectionWithImage({
             </h2>
             <div className="mt-4 md:mt-6">{children}</div>
           </div>
-          <div className="relative order-1 aspect-[4/3] w-full md:order-2 md:aspect-auto md:min-h-[280px]">
-            <ImageWithLoading
-              src={image}
-              alt=""
-              fill
-              className="object-cover object-center"
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
-          </div>
+          <LearnSectionImage
+            src={image}
+            alt={imageAlt}
+            className="order-1 md:order-2"
+          />
         </>
       )}
     </article>
@@ -119,39 +163,32 @@ export default function LearnMorePage() {
       {/* Why the name */}
       <AnimateOnScroll>
       <section className="mt-16 md:mt-20">
-        <article className="grid grid-cols-1 gap-0 overflow-hidden border border-charcoal/10 bg-white/40 shadow-sm backdrop-blur-sm md:grid-cols-2">
-          <div className="relative aspect-[4/3] w-full md:aspect-auto md:min-h-[280px]">
-            <ImageWithLoading
-              src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80"
-              alt=""
-              fill
-              className="object-cover object-center"
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
-          </div>
+        <article className={learnSectionArticleClass}>
+          <LearnSectionImage
+            src={images.learn.whyTheName}
+            alt="Why the name Elevate U"
+          />
           <div className="flex flex-col justify-center p-6 md:p-8">
             <h2 className="font-display text-2xl font-semibold text-charcoal md:text-3xl">
-              Why the name Psychological Warfare?
+              Why the name ElevateU?
             </h2>
             <p className="mt-4 leading-relaxed text-charcoal/90 md:mt-6 md:text-lg">
-              Let's be honest—<strong>growth is not easy</strong>. It's a daily
-              decision. A quiet, ongoing battle between the healthier ways we're
-              learning to think and the patterns we were shaped by. Patterns
-              formed by the people who raised us, the cultures we grew up in, our
-              communities, and the relationships that left lasting marks.
+              The plain fact of the matter is that I am here to <strong>elevate you</strong>. 
+              My love, my passion, and my purpose in life are for the growth and development of others. 
+              However, it is important to remember that <strong>growth</strong> is not easy. 
             </p>
             <p className="mt-4 leading-relaxed text-charcoal/90 md:text-lg">
-              There is a horizon on the other side. But I won't tell you this
-              work is simple. Real change asks for courage. It asks you to
-              question what feels familiar and to step toward something new.
+              It is a battle that we choose to fight every day—a battle of our new, 
+              healthy ways of learning versus how we were programmed to think; 
+              programmed by those who raised us, cultural influences, our community, 
+              or the impactful relationships around us. There can be a horizon on the other side. 
+              Although I will be straightforward with you, it is not easy to get there.
             </p>
             <p className="mt-4 leading-relaxed text-charcoal/90 md:text-lg">
-              If you choose to become a{" "}
-              <strong>psychological warrior of change</strong>, know that the
-              path will challenge you. And also know this: the rewards—clarity,
-              resilience, freedom, deeper connection—can be profound. If you're
-              willing to take that journey, I would be honored to walk alongside
-              you.
+            That is why I want to put this at the forefront of your mind. 
+            If you choose to <strong>elevate yourself</strong>, you will need to possess the drive and courage to 
+            reach a new potential. This process will be a challenge; however, the rewards can be 
+            great if you decide to take part in this journey with me.
             </p>
             <div className="mt-6">
               <Button href="/booking">Book a Session</Button>
@@ -164,7 +201,7 @@ export default function LearnMorePage() {
       {/* About Me */}
       <AnimateOnScroll>
       <section className="mt-10 md:mt-12">
-        <article className="grid grid-cols-1 gap-0 overflow-hidden border border-charcoal/10 bg-white/40 shadow-sm backdrop-blur-sm md:grid-cols-2">
+        <article className={learnSectionArticleClass}>
           <div className="order-2 flex flex-col justify-center p-6 md:order-1 md:p-8">
             <h2 className="font-display text-2xl font-semibold text-charcoal md:text-3xl">
               About Me
@@ -186,15 +223,12 @@ export default function LearnMorePage() {
               </Button>
             </div>
           </div>
-          <div className="relative order-1 aspect-[4/3] w-full md:order-2 md:aspect-auto md:min-h-[280px]">
-            <ImageWithLoading
-              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80"
-              alt=""
-              fill
-              className="object-cover object-center"
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
-          </div>
+          <LearnSectionImage
+            src={images.learn.aboutMe}
+            alt="Ryan James Adams, counselor"
+            className="order-1 md:order-2"
+            objectPosition={learnAboutMeObjectPosition}
+          />
         </article>
       </section>
       </AnimateOnScroll>
@@ -206,6 +240,7 @@ export default function LearnMorePage() {
           <SectionWithImage
             title={section.title}
             image={section.image}
+            imageAlt={section.imageAlt}
             imageLeft={section.imageLeft}
           >
             <p className="whitespace-pre-line leading-relaxed text-charcoal/90 md:text-lg">

@@ -30,7 +30,7 @@ export function Nav() {
         <div className="flex items-center gap-2 md:justify-self-start">
           <Image
             src={`${BASE_PATH}/favicon.ico`}
-            alt="Psychological Warfare Logo"
+            alt="ElevateU Logo"
             width={32}
             height={32}
           />
@@ -39,7 +39,7 @@ export function Nav() {
             href="/"
             className="font-display text-xl font-semibold tracking-tight text-charcoal/90 hover:text-cream transition-colors"
           >
-            Psychological Warfare
+            ElevateU
           </Link>
         </div>
 
