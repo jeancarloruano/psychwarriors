@@ -39,6 +39,9 @@ jobs:
           NEXT_PUBLIC_CALENDLY_SESSION_URL: ${{ vars.NEXT_PUBLIC_CALENDLY_SESSION_URL }}
         run: npm run build
 
+      - name: Prepare static output for GitHub Pages
+        run: touch out/.nojekyll
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:

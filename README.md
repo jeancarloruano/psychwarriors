@@ -70,3 +70,19 @@ This repo is configured to deploy as a **static export** to GitHub Pages at `htt
 3. **Deploy**
    - Push to `main`
    - The workflow in `.github/workflows/deploy.yml` builds and publishes the `out/` directory.
+
+### Troubleshooting
+
+**Seeing the README instead of the site?**
+
+1. **Use the Pages URL, not the repo URL**
+   - Site: `https://jeancarloruano.github.io/elevateu/`
+   - Repo (shows README only): `https://github.com/jeancarloruano/elevateu`
+
+2. **Pages must use GitHub Actions, not “Deploy from a branch”**
+   - **Settings** → **Pages** → **Build and deployment**
+   - **Source** must be **GitHub Actions** (not “Deploy from a branch” / `main` / root).
+   - If it was set to a branch, switch to **GitHub Actions**, save, then **Actions** → **Deploy to GitHub Pages** → **Run workflow**.
+
+3. **Confirm the deploy succeeded**
+   - **Actions** tab → latest **Deploy to GitHub Pages** run → green check on both **build** and **deploy** jobs.
