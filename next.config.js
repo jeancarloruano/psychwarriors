@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-const repo = "psychwarriors";
+const repo = "elevateu";
 
 const nextConfig = {
   output: "export",

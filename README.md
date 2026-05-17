@@ -54,7 +54,7 @@ Scheduling and payments are handled entirely in Calendly; there is no Stripe, da
 
 ## Deploy to GitHub Pages
 
-This repo is configured to deploy as a **static export** to GitHub Pages at `https://<your-username>.github.io/psychwarriors/`.
+This repo is configured to deploy as a **static export** to GitHub Pages at `https://jeancarloruano.github.io/elevateu/`.
 
 1. **Enable Pages**
    - GitHub repo → **Settings** → **Pages**
