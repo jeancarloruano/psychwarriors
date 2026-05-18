@@ -1,6 +1,7 @@
 import { ImageWithLoading } from "@/components/ui/ImageWithLoading";
 import { Button } from "@/components/ui/Button";
 import { images, sectionImageFrameClass, sectionImageSizes } from "@/lib/images";
+import { PageContainer } from "@/lib/layout";
 
 const hours = [
   { day: "Monday", hours: "5:00 PM – 7:00 PM PST" },
@@ -10,7 +11,7 @@ const hours = [
 
 export default function ContactPage() {
   return (
-    <div className="mx-auto w-[80%] max-w-[80vw] px-6 py-16 md:py-24">
+    <PageContainer>
       {/* I'm here for you - image left, text right */}
       <section className="grid w-full grid-cols-1 gap-8 md:grid-cols-2 md:items-center">
         <div className={sectionImageFrameClass}>
@@ -95,6 +96,6 @@ export default function ContactPage() {
           </section>
         </div>
       </section>
-    </div>
+    </PageContainer>
   );
 }

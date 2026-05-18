@@ -3,6 +3,7 @@
 import { useCallback } from "react";
 import Link from "next/link";
 import Script from "next/script";
+import { PageContainer } from "@/lib/layout";
 
 const CONSULTATION_PARAMS =
   "hide_gdpr_banner=1&background_color=fff8e1&text_color=2f2a24&primary_color=ef6c00";
@@ -49,7 +50,7 @@ export default function BookingPage() {
   }, [sessionUrl]);
 
   return (
-    <div className="mx-auto w-[80%] max-w-[80vw] px-6 py-16 md:py-24">
+    <PageContainer>
       <link
         href="https://assets.calendly.com/assets/external/widget.css"
         rel="stylesheet"
@@ -147,6 +148,6 @@ export default function BookingPage() {
           ← Back to session info
         </Link>
       </p>
-    </div>
+    </PageContainer>
   );
 }

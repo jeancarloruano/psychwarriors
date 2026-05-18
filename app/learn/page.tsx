@@ -8,6 +8,7 @@ import {
   learnSectionImageFrameClass,
   sectionImageSizes,
 } from "@/lib/images";
+import { PageContainer } from "@/lib/layout";
 
 const OBJECT_POSITION_PRESETS = {
   center: "object-center",
@@ -145,7 +146,7 @@ function SectionWithImage({
 
 export default function LearnMorePage() {
   return (
-    <div className="mx-auto w-[80%] max-w-[80vw] px-6 py-16 md:py-24">
+    <PageContainer>
       {/* Hero */}
       <header className="text-center md:text-left">
         <p className="text-sm font-medium uppercase tracking-widest text-charcoal/70">
@@ -254,6 +255,6 @@ export default function LearnMorePage() {
           </AnimateOnScroll>
         ))}
       </div>
-    </div>
+    </PageContainer>
   );
 }

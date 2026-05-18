@@ -1,10 +1,11 @@
 import { ImageWithLoading } from "@/components/ui/ImageWithLoading";
 import { Button } from "@/components/ui/Button";
 import { images, sectionImageFrameClass, sectionImageSizes } from "@/lib/images";
+import { PageContainer } from "@/lib/layout";
 
 export default function BookPage() {
   return (
-    <div className="mx-auto w-[80%] max-w-[80vw] px-6 py-16 md:py-24">
+    <PageContainer>
       {/* Hero - text left, image right */}
       <header className="grid grid-cols-1 gap-8 md:grid-cols-2 md:items-center">
         <div className="text-center md:text-left">
@@ -110,6 +111,6 @@ export default function BookPage() {
           </p>
         </div>
       </section>
-    </div>
+    </PageContainer>
   );
 }

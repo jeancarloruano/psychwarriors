@@ -88,5 +88,6 @@ body::after {
   .p-disclaimer {
     @apply text-sm leading-relaxed italic text-charcoal/75 md:text-base;
   }
+
 }
 

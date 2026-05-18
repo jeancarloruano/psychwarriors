@@ -2,10 +2,11 @@ import { ImageWithLoading } from "@/components/ui/ImageWithLoading";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { images } from "@/lib/images";
+import { PageContainer } from "@/lib/layout";
 
 export default function NotFound() {
   return (
-    <div className="mx-auto flex min-h-[60vh] w-[80%] max-w-[80vw] flex-col justify-center px-6 py-16 md:py-24">
+    <PageContainer className="flex min-h-[60vh] flex-col justify-center">
       <div className="mx-auto max-w-xl text-center">
         <div className="relative mx-auto mb-8 aspect-[4/3] w-full max-w-sm overflow-hidden rounded-sm border border-charcoal/10 bg-[#fff8e1]">
           <ImageWithLoading
@@ -40,6 +41,6 @@ export default function NotFound() {
           </Link>
         </p>
       </div>
-    </div>
+    </PageContainer>
   );
 }
